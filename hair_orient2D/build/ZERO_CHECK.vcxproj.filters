@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\build\CMakeFiles\730288e04752d663b6d660a05335fe48\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3E2F15D0-397F-3447-A329-50D743072622}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

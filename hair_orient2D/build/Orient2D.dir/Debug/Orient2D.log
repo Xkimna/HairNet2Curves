@@ -1,0 +1,63 @@
+﻿  Building Custom Rule E:/xujinna/13.neural hair/HairNet_orient2D/Hair_Orient2D/CMakeLists.txt
+  main_nobody.cpp
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(686,12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(614,3): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(654,6): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(668,7): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(680,7): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(790,26): warning C4018: “<”: 有符号/无符号不匹配
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(770,6): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(901,3): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(908,14): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(910,19): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\Im.hpp(912,19): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+D:\libraries\opencv\build\include\opencv2/objdetect/aruco_board.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\OrientMap.hpp(73,21): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\OrientMap.hpp(87,12): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\OrientMap.hpp(88,12): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\OrientMap.hpp(99,26): warning C4244: “参数”: 从“double”转换到“const T”，可能丢失数据
+          with
+          [
+              T=float
+          ]
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\OrientMap.hpp(369,12): warning C4244: “参数”: 从“int”转换到“const T”，可能丢失数据
+          with
+          [
+              T=float
+          ]
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\OrientMap.hpp(369,9): warning C4244: “参数”: 从“int”转换到“const T”，可能丢失数据
+          with
+          [
+              T=float
+          ]
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(163,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(175,35): warning C4244: “=”: 从“_Ty”转换到“int”，可能丢失数据
+          with
+          [
+              _Ty=float
+          ]
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(203,29): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(204,26): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(208,34): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(220,25): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(245,26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(246,26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(247,23): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(248,23): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(254,24): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(255,24): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\main_nobody.cpp(263,29): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  Orient2D.vcxproj -> E:\xujinna\13.neural hair\HairNet_orient2D\Hair_Orient2D\build\Debug\Orient2D.exe

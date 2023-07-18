@@ -1,0 +1,10 @@
+^E:\XUJINNA\13.NEURAL HAIR\HAIRNET_ORIENT2D\HAIR_ORIENT2D\CMAKELISTS.TXT
+setlocal
+D:\CMake\bin\cmake.exe "-SE:/xujinna/13.neural hair/HairNet_orient2D/Hair_Orient2D" "-BE:/xujinna/13.neural hair/HairNet_orient2D/Hair_Orient2D/build" --check-stamp-file "E:/xujinna/13.neural hair/HairNet_orient2D/Hair_Orient2D/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
