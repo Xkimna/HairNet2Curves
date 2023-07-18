@@ -1,6 +1,8 @@
 # HairNet2Curves
 A Blender add-on that can generate Blender curves based on a single hairstyle image.
 
+![Result1.png](readme/img_0.png)
+
 This repository contains code to predict hair curves from a single image. Network frameworks from the [paper](https://arxiv.org/abs/1806.07467):
 
 ## **Initial Setup**
@@ -49,7 +51,7 @@ To start using the plugin, bring up the HairNet panel in the right sidebar of th
 
 3. **Convert to Curves:** Click to convert the mesh hair strands into curve hair and automatically add the **`Surface Deform`** geometry modifier. The converted hair can be further sculpted, geometric nodes added, etc.
 
-![Result.png](readme/img_3.png)
+![Result2.png](readme/img_3.png)
 
 ## **Advanced Installation**
 
