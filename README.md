@@ -3,7 +3,7 @@ A Blender add-on that can generate Blender curves based on a single hairstyle im
 
 ![Result1.png](readme/img_0.png)
 
-This repository contains code to predict hair curves from a single image. Network frameworks from the [paper](https://arxiv.org/abs/1806.07467):
+This repository contains code to predict hair curves from a single image. Network frameworks from the paper: [HairNet: Single-View Hair Reconstruction using Convolutional Neural Networks](https://arxiv.org/abs/1806.07467).
 
 ## **Initial Setup**
 
@@ -20,7 +20,7 @@ This repository contains code to predict hair curves from a single image. Networ
     
 2. **Install the Plugin**
     
-    Install the plugin using the standard Blender plugin installation method: go to **Edit → Preferences → Add-ons → Install...** and select the plugin zip file. Click "Install Add-on" to complete the installation. Finally, enable the **My HairNet** plugin in the plugin interface.
+    Install the plugin using the standard Blender plugin installation method: go to **Edit → Preferences → Add-ons → Install...** and select the plugin zip file. Click "Install Add-on" to complete the installation. Finally, enable the **HairNet2Curves_v2.2** plugin in the plugin interface.
     
 3. **Install Dependencies**
     
