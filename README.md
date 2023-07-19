@@ -83,7 +83,7 @@ In addition to clicking the `Install` button in the [**Preferences**](#initial-s
     ```
     
 
-## **Practical Application**
+## **Export to UE**
 Here are the specific steps and application effects of using Blender HairNet-generated hair in UE:
 
 1. Apply the geometry node modifier used in the hair model to preserve the modified hairstyle.
