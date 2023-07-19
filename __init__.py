@@ -76,12 +76,12 @@ class MyPanel(Panel):
         box = layout.box()
         box.label(text="Setting:")
         # + Smooth or not
-        box.prop(context.object, "is_gaussian", text="Smooth strands")
+        box.prop(context.scene, "is_gaussian", text="Smooth strands")
         # + Import head.obj
-        box.prop(context.object, "is_head", text="Import head model")
+        box.prop(context.scene, "is_head", text="Import head model")
         # + Select the save path, when not saved the output file is automatically saved in the temp file of the plugin
-        box.prop(context.object, "is_save", text="Save results：")
-        if context.object.is_save:
+        box.prop(context.scene, "is_save", text="Save results：")
+        if context.scene.is_save:
             box.operator("my_plugin.save_path", text="select save path", icon='FILEBROWSER')
             save_path = context.scene.get("save_path", "")
             box.label(text="Saved in: " + save_path)
@@ -97,9 +97,10 @@ class MyPanel(Panel):
         box = layout.box()
         box.label(text="Setting:")
         # + Attaching curves to the head
-        box.prop(context.object, "is_link_head", text="Snap to head model：")
-        if context.object.is_link_head:
-            box.prop_search(context.object, "head_object", bpy.data, "objects", text="")
+        box.prop(context.scene, "is_link_head", text="Snap to head model：")
+        if context.scene.is_link_head:
+            if context.object is not None:
+                box.prop_search(context.object, "head_object", bpy.data, "objects", text="")
 
         box.operator("my_plugin.convert_to_hair_curves", text="3.Convert to Hair Curves", icon='STRANDS')
 
@@ -142,47 +143,6 @@ class EnvInstallOperator(Operator):
         return {'FINISHED'}
 
 
-# class ImagePreprocess(Operator):
-#     """Predict 2D directions from a real hair map"""
-#     bl_idname = "my_plugin.preprocess"
-#     bl_label = "Image Preprocessing"
-#
-#     def execute(self, context):
-#         image_path = context.scene.get("image_path", "")
-#         preferences = bpy.context.preferences.addons[__name__].preferences
-#         env_dir = preferences.environment_file_path
-#         addon_dir = os.path.dirname(os.path.abspath(__file__))
-#         main_dir = os.path.join(addon_dir, "hair_detection/main.py")
-#
-#         # delete cache
-#         cache_path1 = os.path.join(addon_dir, "temp/orient_img")
-#         cache_path2 = os.path.join(addon_dir, "temp/orient_img_with_body")
-#         cache_path3 = os.path.join(addon_dir, "temp/orient_img_with_body_256")
-#         folder_paths = [cache_path1, cache_path2, cache_path3]
-#
-#         for folder_path in folder_paths:
-#             if os.path.exists(folder_path):
-#                 shutil.rmtree(folder_path)
-#                 print(f"Cache cleared：{folder_path}")
-#             else:
-#                 print(f"No cache：{folder_path}")
-#
-#         # hair detection
-#         args = ["--workspace", addon_dir,
-#                 "--image_path", image_path]
-#         cmd = [env_dir, main_dir] + args
-#         subprocess.Popen(cmd).wait()
-#
-#         # hair orient2D
-#         exe_path = os.path.join(addon_dir, "hair_orient2D\\build\\Debug\\Orient2D.exe")
-#         arg1 = "1"
-#         arg2 = os.path.join(addon_dir, "temp\\")
-#         cmd = [exe_path, arg1, arg2]
-#         subprocess.Popen(cmd).wait()
-#         self.report({'INFO'}, 'Preprocess Finished')
-#         return {'FINISHED'}
-
-
 class LoadImageOperator(Operator):
     """Load a hair picture"""
     bl_idname = "my_plugin.load_image"
@@ -190,9 +150,9 @@ class LoadImageOperator(Operator):
 
     filepath: StringProperty(subtype="FILE_PATH")
 
-    @classmethod
-    def poll(cls, context):
-        return context.object is not None
+    # @classmethod
+    # def poll(cls, context):
+    #     return context.object is not None
 
     def execute(self, context):
         self.report({'INFO'}, "Selected file: " + self.filepath)
@@ -272,7 +232,7 @@ class RunMainOperator(Operator):
         input_preprocessed_dir = os.path.join(addon_dir, "temp\\orient_img_with_body_256\\input_preprocessed.exr.png")
         input_file_name = input_dir[input_dir.rfind("\\") + 1:input_dir.rfind(".")]
         save_dir = context.scene.get("save_path", "")
-        is_gaussian = context.object.is_gaussian
+        is_gaussian = context.scene.is_gaussian
 
         args = ["--exp_dir", addon_dir,
                 "--tgt_dir", input_preprocessed_dir,
@@ -290,9 +250,9 @@ class RunMainOperator(Operator):
         if returncode == 0:
             print("Command executed successfully.")
             print("Output:", output.decode())
-            if context.object.is_head:
+            if context.scene.is_head:
                 bpy.ops.import_scene.obj(filepath=os.path.join(addon_dir, "head_model.obj"))
-            if context.object.is_save:
+            if context.scene.is_save:
                 bpy.ops.import_scene.obj(filepath=os.path.join(save_dir, input_file_name + "_output.obj"))
             else:
                 bpy.ops.import_scene.obj(filepath=os.path.join(addon_dir, "temp/output.obj"))
@@ -331,7 +291,7 @@ class ConvertToHairCurveOperator(bpy.types.Operator):
         if mod_curves.node_group is None:
             mod_curves.node_group = m_geometrynode.new_Surface_Deform_GeoNode_Group()
 
-        if context.object.is_link_head:
+        if context.scene.is_link_head:
             head = bpy.context.object.head_object
 
             # Add a geometry node modifier: Rest Position
@@ -375,9 +335,9 @@ def register():
         default=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input_ref.png'),
         subtype="FILE_PATH"
     )
-    bpy.types.Object.is_gaussian = bpy.props.BoolProperty(name="Is Gaussian", default=True)
-    bpy.types.Object.is_head = bpy.props.BoolProperty(name="Is Head", default=True)
-    bpy.types.Object.is_save = bpy.props.BoolProperty(name="Is Save", default=False, update=update_save_path)
+    bpy.types.Scene.is_gaussian = bpy.props.BoolProperty(name="Is Gaussian", default=True)
+    bpy.types.Scene.is_head = bpy.props.BoolProperty(name="Is Head", default=True)
+    bpy.types.Scene.is_save = bpy.props.BoolProperty(name="Is Save", default=False, update=update_save_path)
     bpy.utils.register_class(SelectSavePathOperator)
     bpy.types.Scene.save_path = bpy.props.StringProperty(
         name="Save Path",
@@ -386,7 +346,7 @@ def register():
     )
     bpy.utils.register_class(RunMainOperator)
     bpy.utils.register_class(ConvertToHairCurveOperator)
-    bpy.types.Object.is_link_head = bpy.props.BoolProperty(name="Is Link Head", default=True)
+    bpy.types.Scene.is_link_head = bpy.props.BoolProperty(name="Is Link Head", default=True)
     bpy.types.Object.head_object = bpy.props.PointerProperty(type=bpy.types.Object)
 
 
@@ -397,14 +357,14 @@ def unregister():
     # bpy.utils.unregister_class(ImagePreprocess)
     bpy.utils.unregister_class(LoadImageOperator)
     del bpy.types.Scene.image_path
-    del bpy.types.Object.is_gaussian
-    del bpy.types.Object.is_head
-    del bpy.types.Object.is_save
+    del bpy.types.Scene.is_gaussian
+    del bpy.types.Scene.is_head
+    del bpy.types.Scene.is_save
     bpy.utils.unregister_class(SelectSavePathOperator)
     del bpy.types.Scene.save_path
     bpy.utils.unregister_class(RunMainOperator)
     bpy.utils.unregister_class(ConvertToHairCurveOperator)
-    del bpy.types.Object.is_link_head
+    del bpy.types.Scene.is_link_head
     del bpy.types.Object.head_object
 
 
